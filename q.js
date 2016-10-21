@@ -2,12 +2,19 @@
  * Micro library and helper functions
  */
 ;(function (window) {
+
+    /**
+     * Q or q global object
+     * @type {Q}
+     */
+    window.Q = window.q = Q;
+
     /**
      * This is a very simple jQuery like selector function
      * @param {string} selector - id/class/tag of DOM element to find
      * @returns {QueueComponent} - Object that will have the chaining
      */
-    window.Q = window.q = function(selector) {
+    function Q(selector) {
         var el;
         if (selector !== undefined && selector !== "") {
             if (document.querySelectorAll(selector).length > 1) {
