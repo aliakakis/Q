@@ -37,25 +37,28 @@
         var context = {
             /**
              * Apply css properties to the styles object
-             * @param {node} node - The element node
              * @param {Object} props - JS literal object
+             * @returns {QueueComponent}
              */
-            css: function(node, props) {
+            css: function(props) {
                 for (var prop in props) {
-                    node.style[prop] = props[prop];
+                    this.el.style[prop] = props[prop];
                 }
+
+                return this;
             },
 
             /**
              * Change width/height of element setting display optionally
              * @param {string} width - Width in px e.g. "100px"
              * @param {string} height - Height in px e.g. "100px"
+             * @param {string} [display] - Display of element
              * @returns {QueueComponent}
              */
-            resize: function(width, height) {
+            resize: function(width, height, display) {
+                this.el.style.width = width;
+                this.el.style.height = height;
                 this.el.style.display = arguments[2] || "block";
-                this.el.style.width = width; //window.innerWidth + "px" OR "100%";
-                this.el.style.height = height; //window.innerHeight + browserBarOffset + "px";
 
                 return this;
             },
@@ -112,10 +115,10 @@
          * Wrap window.setTimeout in order to better show that by using it
          * we are essentially placing code into a new event in the event queue
          * @param {function} callback - The function to run
-         * @param {number} [ellapsedTime] - Time in milliseconds that is 0 by default
+         * @param {number} [elapsedTime] - Time in milliseconds that is 0 by default
          */
-        wait: function(callback, ellapsedTime) {
-            window.setTimeout(callback, ellapsedTime = arguments[1] || 0);
+        wait: function(callback, elapsedTime) {
+            window.setTimeout(callback, elapsedTime = arguments[1] || 0);
         }
     };
 
