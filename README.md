@@ -16,7 +16,7 @@ Q("div")
 
 .scale(scaleX, scaleY)
 
-# Globals
+# Static methods
 
 Q
 
