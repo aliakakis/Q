@@ -2,7 +2,9 @@
 This is a very simple jQuery like DOM manipulation library
 
 # Example
-Q("div")
+- Pass a css selector e.g. #id, .class, div
+
+Q(selector)
 
 - Pass an object with CSS properties e.g.({width: "100px"})
 
