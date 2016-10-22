@@ -5,7 +5,7 @@ This is a very simple jQuery like DOM manipulation library. In some cases I foun
 # Example
 - Pass a css selector e.g. #id, .class, div
 
-Q(selector)
+Q(selector) or q(selector)
 
 - Pass an object with CSS properties e.g.({width: "100px"})
 
@@ -29,7 +29,7 @@ Q(selector)
 
 # Static methods
 
-Q
+Q or q
 
 - Create a custom exception to throw e.g. throw new QException("Error")
 
