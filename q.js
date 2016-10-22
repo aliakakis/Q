@@ -48,10 +48,50 @@
              * @returns {QueueComponent}
              */
             css: function(props) {
+                if (className === undefined) {
+                    throw new SyntaxError("No css properties object e.g. {width: '100px'} passed");
+                }
+                
                 for (var prop in props) {
                     this.el.style[prop] = props[prop];
                 }
 
+                return this;
+            },
+            
+            /**
+             * Add class/es to a dom element
+             * @param {string} className - Classes to add "cls1 cls2"
+             */
+            addClass: function(className) {
+                if (className === undefined) {
+                    throw new SyntaxError("No class name/names passed");
+                }
+                
+                this.el.className += " " + className; 
+                
+                return this;
+            },
+            
+            /**
+             * Remove class/es to a dom element
+             * @param {string} className - Classes to remove "cls1 cls2"
+             */
+            removeClass: function(className) {
+                if (className === undefined) {
+                    throw new SyntaxError("No class name/names passed");
+                }
+                
+                var elClassNameArray = this.el.className.split(" "),
+                    classNameArray = className.split(" ");
+                    
+                for (var value of classNameArray) {
+                    var elClassNameIndex = elClassNameArray.indexOf(value);
+                    elClassNameArray.splice(elClassNameIndex, 1);
+                }
+                		
+                this.el.className = elClassNameArray.join(" ");
+              
                 return this;
             },
 
