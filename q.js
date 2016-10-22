@@ -85,8 +85,8 @@
                 var elClassNameArray = this.el.className.split(" "),
                     classNameArray = className.split(" ");
                     
-                for (var value of classNameArray) {
-                    var elClassNameIndex = elClassNameArray.indexOf(value);
+                for (var i = 0; i < classNameArray.length; i++) {
+                    var elClassNameIndex = elClassNameArray.indexOf(classNameArray[i]);
                     elClassNameArray.splice(elClassNameIndex, 1);
                 }
                 		
