@@ -5,7 +5,7 @@ This is a very simple jQuery like DOM manipulation library. In some cases I foun
 # Example
 - Pass a css selector e.g. #id, .class, div
 
-Q(selector) or q(selector)
+  + Q(selector) or q(selector)
 
 - Pass an object with CSS properties e.g.({width: "100px"})
 
