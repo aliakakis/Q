@@ -5,27 +5,27 @@ This is a very simple jQuery like DOM manipulation library. In some cases I foun
 # Example
 - Pass a css selector e.g. #id, .class, div
 
-  + Q(selector) or q(selector)
+  Q(selector) or q(selector)
 
 - Pass an object with CSS properties e.g.({width: "100px"})
 
-.css(props)
+  .css(props)
 
 - Pass a string of classes to add e.g. "cls1 cls2"
 
-.addClass(className)
+  .addClass(className)
 
 - Pass a string of classes to remove e.g. "cls1 cls2"
 
-.removeClass(className)
+  .removeClass(className)
 
 - Width and height with optional display e.g. ("100px", "100px") 
 
-.resize(width, height[, display]) 
+  .resize(width, height[, display]) 
 
 - Scale element in the X,Y axis e.g. (1, 2)
 
-.scale(scaleX, scaleY)
+  .scale(scaleX, scaleY)
 
 # Static methods
 
@@ -33,12 +33,12 @@ Q or q
 
 - Create a custom exception to throw e.g. throw new QException("Error")
 
-.QException(message) 
+  .QException(message) 
 
 - Pass a node and apply CSS properties e.g.(document.body, {width: "100px"})
 
-.applyCss(node, props)
+  .applyCss(node, props)
 
 - Wrap a function into a window.setTimeout in order to place this code into the event message queue
 
-.wait(fn[, ellapsedTime]) 
+  .wait(fn[, ellapsedTime]) 
