@@ -16,7 +16,7 @@
      */
     function Q(selector) {
         var el;
-        if (selector !== undefined && selector !== "") {
+        if (typeof selector !== 'undefined' && selector !== "") {
             if (document.querySelectorAll(selector).length > 1) {
                 el = document.querySelectorAll(selector);
             }
@@ -48,7 +48,7 @@
              * @returns {QueueComponent}
              */
             css: function(props) {
-                if (className === undefined) {
+                if (typeof props === 'undefined') {
                     throw new SyntaxError("No css properties object e.g. {width: '100px'} passed");
                 }
                 
@@ -64,7 +64,7 @@
              * @param {string} className - Classes to add "cls1 cls2"
              */
             addClass: function(className) {
-                if (className === undefined) {
+                if (typeof className === 'undefined') {
                     throw new SyntaxError("No class name/names passed");
                 }
                 
@@ -78,7 +78,7 @@
              * @param {string} className - Classes to remove "cls1 cls2"
              */
             removeClass: function(className) {
-                if (className === undefined) {
+                if (typeof className === 'undefined') {
                     throw new SyntaxError("No class name/names passed");
                 }
                 
