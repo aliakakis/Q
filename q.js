@@ -60,16 +60,36 @@
             },
             
             /**
+             * Check if a class exists in the element
+             * @param {string} className - Class to check if exist
+             */
+            hasClass: function(className) {
+            	var className = className.trim(); 
+                
+                if (typeof className === 'undefined' || className.length === 0) {
+                    throw new SyntaxError("No class name/names passed please check your syntax");
+                }
+                
+                return new RegExp("(?:^|\\s+)" + className + "(?:\\s+|$)", "g").test(this.el.className);
+            },
+            
+            /**
              * Add class/es to a dom element
              * @param {string} className - Classes to add "cls1 cls2"
              */
             addClass: function(className) {
-                if (typeof className === 'undefined') {
-                    throw new SyntaxError("No class name/names passed");
+                var className = className.trim(); 
+
+                if (typeof className === 'undefined' || className.length === 0) {
+                  throw new SyntaxError("No valid class name/names passed please check your syntax");
                 }
-                
-                this.el.className += " " + className; 
-                
+                else if (this.hasClass(className)) {
+                  throw new SyntaxError("Class already present");
+                }
+                else {
+                  this.el.className += " " + className;
+                }
+
                 return this;
             },
             
@@ -78,20 +98,36 @@
              * @param {string} className - Classes to remove "cls1 cls2"
              */
             removeClass: function(className) {
-                if (typeof className === 'undefined') {
-                    throw new SyntaxError("No class name/names passed");
+            	var className = className.trim(); 
+                
+                if (typeof className === 'undefined' || className.length === 0) {
+                    throw new SyntaxError("No valid class name/names passed please check your syntax");
+                }
+                else {
+                    if (className.split(" ").length > 1) {
+                        var elClassNameArray = this.el.className.split(" "),
+                            classNameArray = className.split(" ");
+
+                        for (var i = 0; i < classNameArray.length; i++) {
+                            if (!this.hasClass(classNameArray[i])) {
+                                throw new SyntaxError("Class is not present");
+                            }
+
+                            var elClassNameIndex = elClassNameArray.indexOf(classNameArray[i]);
+                                elClassNameArray.splice(elClassNameIndex, 1);
+                		}
+                		
+                		this.el.className = elClassNameArray.join(" ");
+                    }
+                    else {
+                        if (!this.hasClass(className)) {
+                            throw new SyntaxError("Class is not present");
+                        }
+
+                        this.el.className = this.el.className.replace(new RegExp("(?:^|\\s+)" + className + "(?:\\s+|$)", "g"), ' ').trim();	
+                    }
                 }
                 
-                var elClassNameArray = this.el.className.split(" "),
-                    classNameArray = className.split(" ");
-                    
-                for (var i = 0; i < classNameArray.length; i++) {
-                    var elClassNameIndex = elClassNameArray.indexOf(classNameArray[i]);
-                    elClassNameArray.splice(elClassNameIndex, 1);
-                }
-                		
-                this.el.className = elClassNameArray.join(" ");
-              
                 return this;
             },
 
