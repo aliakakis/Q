@@ -1,5 +1,5 @@
 # Q
-This is a very simple jQuery like DOM manipulation library. In some cases I found my self using 3 methods from jQuery, css(), addClass() and removeClass(). Don't get my wrong I love jQuery but it is a very "heavy" library for simple stuff. Therefore this library was born. It has the bare minimum and even some helper static methods. The beauty is that you can remove the methods you are not interested in. I hope that you find this tiny library useful.
+This is a very simple jQuery like DOM manipulation library. In some cases I found my self using 3 methods from jQuery, css(), addClass() and removeClass(). Don't get me wrong, I love jQuery, but it is a very "heavy" library for simple stuff. Therefore this library was born. It has the bare minimum and even some helper static methods. The beauty is that you can remove the methods you are not interested in. I hope that you find this tiny library useful.
 
 
 # Example
